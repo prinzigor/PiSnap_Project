@@ -1,44 +1,8 @@
 <blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
-    <block-definition s="set Nailduino pin %&apos;pin&apos; to blink;" type="command" category="looks">
-        <header/>
-        <code/>
-
-<inputs><input type="%n" readonly="true"><options>0
-1
-2
+    
+    <block-definition s="set Raspberrypi pin %&apos;pin&apos; to %&apos;state&apos;" type="command" category="variables"><header/><code/>
+    <inputs><input type="%n" readonly="true"><options>3
 3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13</options></input></inputs>
-
-       <script>
-            <block s="doRun">
-                <block s="reportURL">
-                    <block s="reportJoinWords">
-                        <list>
-                            <l>raspberrypi.local:3000/nailduino/blink/</l>
-                            <block var="pin"/>
-                        </list>
-                    </block>
-                </block>
-                <list></list>
-            </block>
-        </script>
-
-    </block-definition>
-
-    <block-definition s="set Raspberrypi pin %&apos;pin&apos; to %&apos;state&apos;" type="command" category="looks">
-        <header/>
-        <code/>
-
-<inputs><input type="%n" readonly="true"><options>3
 5
 7
 8
@@ -55,8 +19,6 @@
 23
 24
 26
-27
-28
 29
 31
 32
@@ -67,7 +29,6 @@
 38
 40</options></input><input type="%txt" readonly="true">LOW<options>LOW
 HIGH</options></input></inputs>
-        
        <script>
             <block s="doRun">
                 <block s="reportURL">
@@ -75,7 +36,7 @@ HIGH</options></input></inputs>
                         <list>
                             <l>raspberrypi.local:3000/gpio/write/</l>
                             <block var="pin"/>
-			    <l>/</l>
+                            <l>/</l>
                             <block var="state"/>
                         </list>
                     </block>
@@ -83,14 +44,11 @@ HIGH</options></input></inputs>
                 <list></list>
             </block>
         </script>
-        
     </block-definition>
 
-    <block-definition s="set Raspberrypi pin %&apos;pin&apos; to PWM duty %&apos;duty&apos;" type="command" category="looks">
-        <header/>
-        <code/>
 
-<inputs><input type="%n" readonly="true"><options>3
+
+    <block-definition s="set Raspberrypi pin %&apos;pin&apos; to PWM duty %&apos;duty&apos;" type="command" category="variables"><header/><code/><inputs><input type="%n" readonly="true"><options>3
 5
 7
 8
@@ -107,8 +65,6 @@ HIGH</options></input></inputs>
 23
 24
 26
-27
-28
 29
 31
 32
@@ -130,8 +86,7 @@ HIGH</options></input></inputs>
 10
 90
 91
-92</options></input></inputs>
-        
+92</options></input></inputs>        
        <script>
             <block s="doRun">
                 <block s="reportURL">
@@ -147,14 +102,11 @@ HIGH</options></input></inputs>
                 <list></list>
             </block>
         </script>
-        
     </block-definition>
 
-    <block-definition s="Raspberrypi pin %&apos;pin&apos; state" type="predicate" category="operators">
-        
-        <header/>
-        <code/>
-        <inputs><input type="%n" readonly="true"><options>3
+
+
+    <block-definition s="Raspberrypi pin %&apos;pin&apos; state" type="predicate" category="variables"><header/><code/><inputs><input type="%n" readonly="true"><options>3
 5
 7
 8
@@ -171,8 +123,6 @@ HIGH</options></input></inputs>
 23
 24
 26
-27
-28
 29
 31
 32
@@ -182,15 +132,14 @@ HIGH</options></input></inputs>
 37
 38
 40</options></input></inputs>
-
         <script>
             <block s="doIfElse">
                 <block s="reportEquals">
                     <block s="reportURL">
                         <block s="reportJoinWords">
                             <list>
-				<l>raspberrypi.local:3000/gpio/read/</l>
-				<block var="pin"/>
+                                <l>raspberrypi.local:3000/gpio/read/</l>
+                                <block var="pin"/>
                             </list>
                         </block>
                     </block>
@@ -207,8 +156,7 @@ HIGH</options></input></inputs>
                     </block>
                 </script>
             </block>
-        </script>
-        
+        </script>    
     </block-definition>
     
 </blocks>

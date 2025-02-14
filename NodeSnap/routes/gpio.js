@@ -1,5 +1,5 @@
 var five = require('johnny-five');
-var Raspi = require('raspi-io');
+var Raspi = require('raspi-io').RaspiIO;
 var board = new five.Board({
   io: new Raspi()
 });
@@ -15,7 +15,6 @@ router.get('/', function(req, res, next) {
 router.get('/read/:pinno', function(req, res, next) {
   console.log('GPIO READ');
   pinno = Number(req.params.pinno);
-
   readfn(pinno, res);
   console.log('end router');
 });
@@ -29,20 +28,16 @@ var readfn = function(pinno, res) {
   });
 }
 
-var writefn = function(pinno, value, res) {
-  var pin = new five.Pin('P1-'+pinno);
-  five.Pin.write(pin, value);
-
-  res.send('');
-}
-
 router.get('/write/:pinno/:value', function(req, res, next) { 
   pinno = Number(req.params.pinno);
-
   value=(req.params.value.toString().trim() === 'HIGH')?true:false;
-
   writefn(pinno, value, res);
 });
 
-module.exports = router;
+var writefn = function(pinno, value, res) {
+  var pin = new five.Pin('P1-'+pinno);
+  five.Pin.write(pin, value);
+  res.send('');
+}
 
+module.exports = router;
