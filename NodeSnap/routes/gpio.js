@@ -20,7 +20,7 @@ router.get('/read/:pinno', function(req, res, next) {
 });
 
 var readfn = function(pinno, res) {
-  pin = new five.Pin('P1-'+pinno);
+  pin = new five.Pin(''+pinno);
   pin.query(function(state){
     value=(state.value === true)?'true':'false';
     console.log(value);
@@ -30,12 +30,12 @@ var readfn = function(pinno, res) {
 
 router.get('/write/:pinno/:value', function(req, res, next) { 
   pinno = Number(req.params.pinno);
-  value=(req.params.value.toString().trim() === 'HIGH')?true:false;
+  value=(req.params.value.toString().trim() === 'HIGH')?1:0;
   writefn(pinno, value, res);
 });
 
 var writefn = function(pinno, value, res) {
-  var pin = new five.Pin('P1-'+pinno);
+  var pin = new five.Pin(''+pinno);
   five.Pin.write(pin, value);
   res.send('');
 }

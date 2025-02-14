@@ -1,33 +1,30 @@
 <blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
     
     <block-definition s="set Raspberrypi pin %&apos;pin&apos; to %&apos;state&apos;" type="command" category="variables"><header/><code/>
-    <inputs><input type="%n" readonly="true"><options>3
+    <inputs><input type="%n" readonly="true"><options>0
+1
+2
 3
+4
 5
+6
 7
-8
 10
 11
 12
 13
+14
 15
 16
-18
-19
 21
 22
 23
 24
+25
 26
-29
-31
-32
-33
-35
-36
-37
-38
-40</options></input><input type="%txt" readonly="true">LOW<options>LOW
+27
+28
+29</options></input><input type="%txt" readonly="true">LOW<options>LOW
 HIGH</options></input></inputs>
        <script>
             <block s="doRun">
@@ -48,32 +45,30 @@ HIGH</options></input></inputs>
 
 
 
-    <block-definition s="set Raspberrypi pin %&apos;pin&apos; to PWM duty %&apos;duty&apos;" type="command" category="variables"><header/><code/><inputs><input type="%n" readonly="true"><options>3
+    <block-definition s="set Raspberrypi pin %&apos;pin&apos; to PWM duty %&apos;duty&apos;" type="command" category="variables"><header/><code/><inputs><input type="%n" readonly="true"><options>0
+1
+2
+3
+4
 5
+6
 7
-8
 10
 11
 12
 13
+14
 15
 16
-18
-19
 21
 22
 23
 24
+25
 26
-29
-31
-32
-33
-35
-36
-37
-38
-40</options></input><input type="%n" readonly="true">0<options>0
+27
+28
+29</options></input><input type="%n" readonly="true">0<options>0
 1
 2
 3
@@ -106,32 +101,30 @@ HIGH</options></input></inputs>
 
 
 
-    <block-definition s="Raspberrypi pin %&apos;pin&apos; state" type="predicate" category="variables"><header/><code/><inputs><input type="%n" readonly="true"><options>3
+    <block-definition s="Raspberrypi pin %&apos;pin&apos; state" type="predicate" category="variables"><header/><code/><inputs><input type="%n" readonly="true"><options>0
+1
+2
+3
+4
 5
+6
 7
-8
 10
 11
 12
 13
+14
 15
 16
-18
-19
 21
 22
 23
 24
+25
 26
-29
-31
-32
-33
-35
-36
-37
-38
-40</options></input></inputs>
+27
+28
+29</options></input></inputs>
         <script>
             <block s="doIfElse">
                 <block s="reportEquals">
